@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Call to Python Script</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script>
+        $(document).ready(function(){
+            $("#fname").keyup(function(){
+                var fname = $(this).val(); 
+                $.ajax({
+                    url: "./gethint.py", 
+                    data: {q: fname}, // Replace with the actual query parameter
+                    type: "GET",
+                    success: function(response) {
+                        $("#hint").text(response.suggestion);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body onload = "fname.focus();">
+    <h3>AJAX Call to Python Script</h3>
+    <h3>Search the database for user:</h3>
+     First name: <input type="text" id="fname"  />
+     <p>Suggestions: <span id="hint"></span></p> 
+</body>
+</html>
