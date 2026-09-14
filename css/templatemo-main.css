@@ -272,7 +272,9 @@ nav a:hover::before {
   width: 100vw;
   float: left;
   text-align: center;
+  background-color: #0d1620;
   background-size: cover;
+  background-position: center;
 }
 .slides .slide .content {
   overflow-y: scroll;
@@ -305,7 +307,7 @@ nav a:hover::before {
 }
 .slides .slide:nth-child(4) {
   background-image: url(../img/fourth_bg.jpg);
- }
+}
 .slides .slide:nth-child(5) {
   background-image: url(../img/fifth_bg.jpg);
 }
@@ -542,6 +544,13 @@ nav a:hover::before {
 	padding: 5px;
 }
 
+@media (min-width: 750px) {
+	.slides .slide .content.fourth-content {
+		width: 76%;
+		left: 22%;
+	}
+}
+
 .fourth-content .container-fluid {
 	padding-right: 15px;
 	padding-left: 15px;
@@ -563,6 +572,18 @@ nav a:hover::before {
 
 .fourth-content .item .thumb {
 	position: relative;
+}
+
+.fourth-content .item .image {
+	aspect-ratio: 300 / 190;
+	overflow: hidden;
+}
+
+.fourth-content .item .image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 
 .fourth-content .item .hover-effect {
@@ -630,6 +651,12 @@ nav a:hover::before {
 
 .fifth-content #map {
 	padding: 50px 0px 50px 50px;
+}
+
+.fifth-content #map iframe {
+	width: 100%;
+	height: 450px;
+	display: block;
 }
 
 .fifth-content #contact {
@@ -729,7 +756,7 @@ nav a:hover::before {
 	}
 
 	.first-content .author-image img {
-		max-width: 195px;
+		max-width: 300px;
 		float: none;
 		margin-right: 0px;
 		margin-bottom: 30px;
@@ -824,6 +851,10 @@ nav a:hover::before {
 
 	.fifth-content #map {
 		padding: 15px 15px 15px 15px;
+	}
+
+	.fifth-content #map iframe {
+		height: 300px;
 	}
 
 	.fifth-content #contact {
