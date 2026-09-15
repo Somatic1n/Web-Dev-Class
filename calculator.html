@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 		<title>Add 2 Numbers</title>
+        <link rel="stylesheet" href="css/custom1.css">
 
 			<script>
 
@@ -14,14 +15,19 @@
 
 			</script>
 </head>
-<body>
+<body onload="FirstNum.select()">
+    <div class="container">
+        <div class="row justify-content-center"> 
+            <div class="col-md-4">
 
-	     <input type = "text"  id = "FirstNum" size="20"/><br/>
-	     <input type = "text"  id = "SecondNum" size="20"/><br/>
+                <input type = "text" class="input form-control"  id = "FirstNum" size="20"/><br/>
+	            <input type = "text"  id = "SecondNum" size="20"/><br/>
 
-	     <button type="button" onclick= "addTwo(Number(FirstNum.value), Number(SecondNum.value))">Add 2 Numbers</button>
+	            <button class="btn btn-primary" type="button" onclick= "addTwo(Number(FirstNum.value), Number(SecondNum.value))">Add 2 Numbers</button>
 	     
-	     <span id="answer"></span>
-
+	            <span id="answer"></span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
