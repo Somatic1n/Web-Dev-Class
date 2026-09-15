@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>Add 2 Numbers</title>
+
+			<script>
+
+				function addTwo(num1, num2)
+				{
+				   var total;
+				   total = num1 + num2;
+				   document.getElementById("answer").innerHTML = "The sum is " + total;  
+				}
+
+			</script>
+</head>
+<body>
+
+	     <input type = "text"  id = "FirstNum" size="20"/><br/>
+	     <input type = "text"  id = "SecondNum" size="20"/><br/>
+
+	     <button type="button" onclick= "addTwo(Number(FirstNum.value), Number(SecondNum.value))">Add 2 Numbers</button>
+	     
+	     <span id="answer"></span>
+
+</body>
+</html>
