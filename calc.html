@@ -21,6 +21,11 @@
 				function minusTwo(num1, num2)
 				{
 					var total;
+					if (isNaN(num1) || isNaN(num2))
+				   {
+					document.getElementById("answer").innerHTML = "Please Enter a Valid Number.";
+					return;
+				   }
 					total = num1 - num2
 					document.getElementById("answer").innerHTML = "The difference is " + total;
 				}
@@ -28,6 +33,11 @@
 				function multiplyTwo(num1, num2)
 				{
 					var total;
+					if (isNaN(num1) || isNaN(num2))
+				   {
+					document.getElementById("answer").innerHTML = "Please Enter a Valid Number.";
+					return;
+				   }
 					total = num1 * num2
 					document.getElementById("answer").innerHTML = "The product is " + total;
 				}
@@ -35,6 +45,11 @@
 				function divideTwo(num1, num2)
 				{
 					var total;
+					if (isNaN(num1) || isNaN(num2))
+				   {
+					document.getElementById("answer").innerHTML = "Please Enter a Valid Number.";
+					return;
+				   }
 					total = num1 / num2
 					document.getElementById("answer").innerHTML = "The quotient is " + total;
 				}
@@ -45,13 +60,14 @@
 	<div class="bg-success">
     <div class="container d-flex align-items-center min-vh-100">
         <div class="row justify-content-center w-100">
+			<h1 class="col-12 text-center text-white fw-bold mb-4">Calculator</h1>
             <div class="col-md-4 text-center">
 
-                <input type = "text" class="input form-control"  id = "FirstNum" size="20"/><br/>
-	            <input type = "text" class="input form-control"  id = "SecondNum" size="20"/><br/>
+                <input type = "text" class="input form-control"  id = "FirstNum" placeholder="First number"/><br/>
+	            <input type = "text" class="input form-control"  id = "SecondNum" placeholder="Second number"/><br/>
 
 
-	            <div class="d-flex gap-2">
+	            <div class="d-flex gap-2 bg-white rounded shadow p-2">
 	                <button class="btn btn-primary flex-fill" type="button" onclick= "addTwo(Number(FirstNum.value), Number(SecondNum.value))">+</button>
 	                <button class="btn btn-primary flex-fill" type="button" onclick= "minusTwo(Number(FirstNum.value), Number(SecondNum.value))">-</button>
 	                <button class="btn btn-primary flex-fill" type="button" onclick= "multiplyTwo(Number(FirstNum.value), Number(SecondNum.value))">*</button>
@@ -64,7 +80,6 @@
             </div>
         </div>
     </div>
-
 	</div>
 </body>
 </html>
