@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Guessing Game</title>
+</head>
+<body>
+   <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+		    <div>Guessing Game</div>
+		    
+	        <span class="mt-2" id="myFeedback">&nbsp;</span>
+
+		    <label class="form-label" for="myGuess">Guess a number (between 1 and 500)</label> 
+		    <input id="myGuess" class="form-control" type="text" /><br />
+
+		    <button id="mybutton" class="btn btn-info" onclick="check_it()" type="button">Guess</button>
+		</div>
+	</div>
+   </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+			var randomNum =	Math.round(Math.random() * 499) + 1; //Global variable - value 1-100
+    		document.title = "Guessing Game " + randomNum;  //cheat!	
+			var guesses = 0; //Global variable
+			function check_it()
+			{
+			   guesses++;
+			   if (randomNum == myGuess.value)  //Correct!
+		       {
+ 			        if(guesses == 1)
+ 			           myFeedback.innerHTML ="Way to go! You guessed it in " + guesses + " try!";
+ 			        else
+   			           myFeedback.innerHTML ="Way to go! You guessed it in " + guesses + " tries!";
+ 		       }   
+			   else  //Wrong!
+      			{
+      			    if (randomNum < myGuess.value) 
+      		        {
+		     			   myFeedback.innerHTML = "Too high!";
+		     		}
+		   			else
+		 			{
+ 	            		   myFeedback.innerHTML = "Too low!";
+ 	                }
+ 	           }         
+ 		 	   myGuess.select();
+        	}
+		</script>
+</body>
+</html>
