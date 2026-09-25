@@ -50,12 +50,18 @@
       </div>
     </div>
 
-    <div class="modal fade" id="WinModal" aria-hidden="true" tabindex="-1">
+    <div
+      class="modal fade"
+      id="WinModal"
+      aria-hidden="true"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">You Won!</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">Play Again or leave the page</div>
           <div class="modal-footer">
@@ -148,7 +154,6 @@
           particleCount: 150,
           spread: 90,
           origin: { y: 0.6 },
-          zIndex: 1080,
         });
         var myModal = new bootstrap.Modal(document.getElementById("WinModal"));
         myModal.show();
