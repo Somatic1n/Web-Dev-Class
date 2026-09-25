@@ -141,8 +141,15 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script>
       function popupWin() {
+        confetti({
+          particleCount: 150,
+          spread: 90,
+          origin: { y: 0.6 },
+          zIndex: 1080,
+        });
         var myModal = new bootstrap.Modal(document.getElementById("WinModal"));
         myModal.show();
       }
