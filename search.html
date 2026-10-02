@@ -1,23 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/custom1.css" rel="stylesheet"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/custom1.css" rel="stylesheet" />
     <title>Search</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="bg-danger">
-    <div class="container-fluid d-flex align-items-center min-vh-100">
+      <div class="container-fluid d-flex align-items-center min-vh-100">
         <div class="row justify-content-center w-100">
-            <h1 class="col-12 text-center fw-bold mb-4 text-white">
-                Search
-            </h1>
-            <div class="col-md-4 text-center">
-                Here
-            </div>
+          <h1 class="col-12 text-center fw-bold mb-4 text-white">Search</h1>
+          <div class="col-md-4">
+            <form method="get" action="https://www.google.com/search" target="_blank">
+              <div class="row">
+                <div class="my-2 flex-fill text-center">
+                  <input type="text" class="form-control flex-fill mb-4" name="q" placeholder="Search Phrase" />
+                  <input type="submit" class="btn btn-primary flex-fill" value="Search Google" />
+                </div>
+              </div>
+            </form>
+            <form method="get" action="https://www.bing.com/search" target="_blank">
+              <div class="row">
+                <div class="my-2 flex-fill text-center">
+                  <input type="text" class="form-control flex-fill mb-4" name="q" placeholder="Search Phrase" />
+                  <input type="submit" class="btn btn-primary flex-fill" value="Search Bing" />
+                </div>
+              </div>
+            </form>
+            <form method="get" action="https://duckduckgo.com/" target="_blank">
+              <div class="row">
+                <div class="my-2 flex-fill text-center">
+                  <input type="text" class="form-control flex-fill mb-4" name="q" placeholder="Search Phrase" />
+                  <input type="submit" class="btn btn-primary flex-fill" value="Search Duckduckgo" />
+                </div>
+              </div>
+            </form>
+            <form method="get" action="https://search.yahoo.com/search" target="_blank">
+              <div class="row">
+                <div class="my-2 flex-fill text-center">
+                  <input type="text" class="form-control flex-fill mb-4" name="p" placeholder="Search Phrase" />
+                  <input type="submit" class="btn btn-primary flex-fill" value="Search Yahoo" />
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-</body>
+  </body>
 </html>
