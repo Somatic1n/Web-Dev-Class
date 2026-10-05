@@ -12,7 +12,7 @@
         <div class="row justify-content-center w-100">
           <h1 class="col-12 text-center fw-bold mb-4 text-white">Search</h1>
           <div class="col-md-4">
-            <form method="get" action="https://www.google.com/search" target="_blank" onsubmit="return validateForm(this.elements[0].value, google)">
+            <form method="get" action="https://www.google.com/search" target="_blank" onsubmit="return validateForm(this.elements[0].value, 'google')">
               <div class="row">
                 <div class="my-2 flex-fill text-center">
                   <input type="text" id="google" class="form-control flex-fill mb-4" name="q" placeholder="Search Phrase" />
@@ -20,7 +20,7 @@
                 </div>
               </div>
             </form>
-            <form method="get" action="https://www.bing.com/search" target="_blank" onsubmit="return validateForm(this.elements[0].value, bing)">
+            <form method="get" action="https://www.bing.com/search" target="_blank" onsubmit="return validateForm(this.elements[0].value, 'bing')">
               <div class="row">
                 <div class="my-2 flex-fill text-center">
                   <input type="text" id="bing" class="form-control flex-fill mb-4" name="q" placeholder="Search Phrase"/>
@@ -28,7 +28,7 @@
                 </div>
               </div>
             </form>
-            <form method="get" action="https://duckduckgo.com/" target="_blank" onsubmit="return validateForm(this.elements[0].value, duckduckgo)">
+            <form method="get" action="https://duckduckgo.com/" target="_blank" onsubmit="return validateForm(this.elements[0].value, 'duckduckgo')">
               <div class="row">
                 <div class="my-2 flex-fill text-center">
                   <input type="text" id="duckduckgo" class="form-control flex-fill mb-4" name="q" placeholder="Search Phrase"/>
@@ -36,7 +36,7 @@
                 </div>
               </div>
             </form>
-            <form method="get" action="https://search.yahoo.com/search" target="_blank" onsubmit="return validateForm(this.elements[0].value, yahoo)">
+            <form method="get" action="https://search.yahoo.com/search" target="_blank" onsubmit="return validateForm(this.elements[0].value, 'yahoo')">
               <div class="row">
                 <div class="my-2 flex-fill text-center">
                   <input type="text" id="yahoo" class="form-control flex-fill mb-4" name="p" placeholder="Search Phrase"/>
@@ -52,9 +52,9 @@
     <script>
       function validateForm(formInput, ID)
       {
-        if(formInput == ""){
+        if(formInput.trim() == ""){
         alert("Please Enter a Search Phrase.");
-        ID.focus()
+        document.getElementById(ID).focus()
         return false;
       }
       else
