@@ -1,4 +1,4 @@
-#! C:\Python313\python.exe
+#!/usr/bin/env python3
 
 import os
 import sys
