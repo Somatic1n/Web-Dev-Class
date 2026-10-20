@@ -21,7 +21,7 @@ else:
 
 # Retrieve the values sent from the client
 
-username = qs_values['username'][0] 
+username = qs_values['username'][0]
 password = qs_values['password'][0]
 email = qs_values['email'][0]
 

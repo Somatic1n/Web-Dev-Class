@@ -1,8 +1,9 @@
-#! C:\Python313\python.exe
+#!/usr/bin/env python3
 
 import os
 import sys
 import urllib.parse
+import tempfile
 from http import cookies
 
 # Determine if request is POST or GET
@@ -43,7 +44,7 @@ if not session_id:
     session_id = str(uuid.uuid4())
     cookie['session_id'] = session_id
 
-session_file_path = f'\\tmp\\session_{session_id}.txt'  #Must be a file with WRITE access
+session_file_path = os.path.join(tempfile.gettempdir(), f'session_{session_id}.txt')  #Must be a file with WRITE access
 with open(session_file_path, 'w') as session_file:
     if fname:
         session_file.write(f'fname={fname}\n')
@@ -53,6 +54,7 @@ with open(session_file_path, 'w') as session_file:
 #**********Create and Print the Cookie Before (Important!) the HTML Header**********
 
 cookie['FullName'] = fname + " " + lname
+cookie['FullName']['max-age'] = 3600 
 print(cookie)
 
 #**********Output the HTML**********
