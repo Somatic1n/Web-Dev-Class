@@ -25,6 +25,8 @@ id = qs_values['id2update'][0]
 username = qs_values['username'][0] 
 password = qs_values['password'][0]
 email = qs_values['email'][0]
+comment = qs_values['comment'][0]
+
 
 #********** Hash the password**********
 password_bytes = password.encode('utf-8')
@@ -47,8 +49,8 @@ mycursor = mydb.cursor()
 
 #**********Execute the SQL Statement to Update the Record **********
 
-sql = "UPDATE user set UserName = %s, Email = %s, Password=%s where ID = %s"
-val = (username, email, hashedpassword, id)
+sql = "UPDATE user set UserName = %s, Email = %s, Password=%s, Comment=%s where ID = %s"
+val = (username, email, hashedpassword, comment, id)
 try:
   mycursor.execute(sql, val)
   mydb.commit()

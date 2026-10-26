@@ -24,6 +24,7 @@ else:
 username = qs_values['username'][0]
 password = qs_values['password'][0]
 email = qs_values['email'][0]
+comment = qs_values['comment'][0]
 
 #**********Hash the password**********
 
@@ -47,8 +48,8 @@ mycursor = mydb.cursor()
 
 #**********Execute the SQL Statement to Insert the Record **********
 
-sql = "INSERT INTO user (UserName, Email, Password) VALUES ( %s, %s, %s)"
-val = (username, email, hashedpassword)
+sql = "INSERT INTO user (UserName, Email, Password, Comment) VALUES ( %s, %s, %s, %s)"
+val = (username, email, hashedpassword, comment)
 try:
   mycursor.execute(sql, val)
   mydb.commit()
