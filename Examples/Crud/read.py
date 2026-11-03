@@ -1,6 +1,7 @@
 #! C:\Python313\python.exe
 
 import os
+import html
 import urllib.parse
 import mysql.connector # must install mysql-connector-python then mysql-connector
 from mysql.connector import errorcode
@@ -36,8 +37,10 @@ print ("<title>Python Crud Read</title>")
 print ("</head>")
 print ("<body>")
 
+# Escape every value before it goes into the page, so anything a user typed
+# (like a <script> tag) is shown as plain text instead of run by the browser.
 for x in myresult:
-  print(x)
+  print(html.escape(str(x)))
   print("<br>")
 mydb.close()
 

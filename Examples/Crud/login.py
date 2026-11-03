@@ -2,6 +2,7 @@
 
 import os
 import sys
+import json
 import urllib.parse
 import mysql.connector 
 from mysql.connector import errorcode
@@ -103,7 +104,13 @@ print ("<body>")
 print (DBResponse)
 print ("<br><br><a href='read.py'>View List</a>")
 print ("<br><br><a href='index.html'>Crud Home</a>")
-print (f"<script>localStorage.setItem('UserName','{username}');</script>");
-print (f"<script>localStorage.setItem('Comment','{comment}');</script>");  #Send back JavaScript to save to local storage
+# User data going INSIDE JavaScript needs JS-safe quoting, not HTML escaping.
+# json.dumps() makes a properly quoted JS string (quotes inside get escaped),
+# and replacing "</" stops the value from closing the <script> tag early.
+def js_string(value):
+  return json.dumps(value).replace("</", "<\\/")
+
+print (f"<script>localStorage.setItem('UserName',{js_string(username)});</script>");
+print (f"<script>localStorage.setItem('Comment',{js_string(comment)});</script>");  #Send back JavaScript to save to local storage
 print ("</body>")
 print ("</html>")
