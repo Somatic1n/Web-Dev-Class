@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+      window.onload = function () {
+        var dataPoints_ChartA = [];
+        var dataPoints_ChartB = [];
+        var chartA = new CanvasJS.Chart("chartContainer_ChartA", {
+          animationEnabled: true,
+          zoomEnabled: true,
+          theme: "light2",
+          title: {
+            text: "US vs China Population Growth",
+          },
+          axisY: {
+            title: "Population Growth (%)",
+            titleFontSize: 24,
+            includeZero: true,
+          },
+          data: [
+            {
+              type: "line", //Graph Types:  line, area, column
+              yValueFormatString: "#.## Units",
+              dataPoints: dataPoints_ChartA,
+            },
+            {
+              type: "line", //Graph Types:  line, area, column
+              yValueFormatString: "#.## Units",
+              dataPoints: dataPoints_ChartB,
+            },
+          ],
+        });
+
+        function addData_ChartA(data) {
+          for (var i = 0; i < data[1].length; i++) {
+            dataPoints_ChartA.push({
+              x: new Date(data[1][i].date),
+              y: data[1][i].value,
+            });
+          }
+          chartA.render();
+        }
+
+        function addData_ChartB(data) {
+          for (var i = 0; i < data[1].length; i++) {
+            dataPoints_ChartB.push({
+              x: new Date(data[1][i].date),
+              y: data[1][i].value,
+            });
+          }
+          chartB.render();
+        }
+
+        // This line is the one that makes the call to the world bank and pulls the JSON data.
+        // For your assignment, it needs to be changed.  Find another indicator and replace the indicator in the URL
+        // The indicator is in ALL.CAPS.
+
+        $.getJSON("https://api.worldbank.org/v2/country/US/indicator/SP.POP.GROW?format=json", addData_ChartA);
+        $.getJSON("https://api.worldbank.org/v2/country/CHN/indicator/SP.POP.GROW?format=json", addData_ChartB);
+
+        // You will also need to change the captions on the graph above.  (title:text, axisY:title, data:type, data:yValueFormatString)
+        // To make sure your URL is correct, copy the URL to a browser and see if it returns data.
+      }; //End window.onload
+    </script>
+  </head>
+  <body>
+    <div id="chartContainer_ChartA" style="height: 370px; width: 100%"></div>
+    <div id="chartContainer_ChartB" style="height: 370px; width: 100%"></div>
+  </body>
+</html>
