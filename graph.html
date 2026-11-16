@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@canvasjs/charts@3.17.8/canvasjs.min.js"></script>
     <script>
       window.onload = function () {
         var dataPoints_ChartA = [];
@@ -22,13 +22,17 @@
           data: [
             {
               type: "line", //Graph Types:  line, area, column
-              yValueFormatString: "#.## Units",
+              yValueFormatString: "#.##'%'",
               dataPoints: dataPoints_ChartA,
+              name: "US",
+              showInLegend: true,
             },
             {
               type: "line", //Graph Types:  line, area, column
-              yValueFormatString: "#.## Units",
+              yValueFormatString: "#.##'%'",
               dataPoints: dataPoints_ChartB,
+              name: "China",
+              showInLegend: true,
             },
           ],
         });
@@ -67,5 +71,6 @@
   </head>
   <body>
     <div id="chartContainer_ChartA" style="height: 370px; width: 100%"></div>
+    <div id="chartContainer_ChartB" style="height: 370px; width: 100%"></div>
   </body>
 </html>
